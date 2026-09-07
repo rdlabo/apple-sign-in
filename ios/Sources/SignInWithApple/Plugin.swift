@@ -79,7 +79,7 @@ extension SignInWithApple: ASAuthorizationControllerDelegate {
         guard let call = self.bridge?.savedCall(withID: id) else {
             return
         }
-        call.reject(error.localizedDescription)
+        call.reject(error.localizedDescription, String((error as NSError).code), error)
         self.bridge?.releaseCall(call)
     }
 }
